@@ -10,15 +10,15 @@
 //};
 
 // get user info
-// const getUserInfo = async () => {
-//     const res = await fetch('http://127.0.0.1:8020/users');
-//     if (res.ok) {
-//         const data = await res.json();
-//         return data;
-//     } else {
-//         throw new Error('사용자 정보 조회 실패!');
-//     }
-// };
+ const getUserInfo = async () => {
+     const res = await fetch('http://54.180.228.64:32324/users');
+     if (res.ok) {
+         const data = await res.json();
+         return data;
+     } else {
+         throw new Error('사용자 정보 조회 실패!');
+     }
+ };
 
 // 로그인 된 사용자 추출
 const displayUserInfo = () => {
