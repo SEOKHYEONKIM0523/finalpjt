@@ -3,7 +3,7 @@ const loginbtn = document.querySelector('#loginbtn');
 
 
 const getUserInfo = async () => {
-  const res = await fetch('http://3.36.108.3:8010/users');
+  const res = await fetch('http://54.180.228.64:32324/users');
   if (res.ok) {
       const data = await res.json();
       return data;
