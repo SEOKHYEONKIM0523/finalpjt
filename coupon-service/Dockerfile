@@ -11,6 +11,5 @@ ENV PYTHONPATH=/app
 
 EXPOSE 8040
 
-VOLUME /app/coupons.db
 
 CMD ["python","api/main.py"]

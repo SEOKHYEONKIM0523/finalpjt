@@ -1,12 +1,12 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
+from settings import config
 
 # from api.models.member import Base
 from api.models.member import Base
 
-db_url = 'sqlite:///member.db'
 
-engine = sqlalchemy.create_engine(db_url, echo=True)
+engine = sqlalchemy.create_engine(config.db_conn, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def create_tables():

@@ -4,14 +4,11 @@
   become: true
 
   vars:
-    mariadb_root_passwd: abc123xyz
-    mariadb_databases:
-      - name: car
-        state: present
+    mariadb_root_passwd: parkings
     mariadb_users:
-      - name: abc123
-        password: 987xyz
-        priv: "clouds2024.*:ALL"
+      - name: parkings
+        password: parkings
+        priv: "parkings.*:ALL"
         state: present
 
   tasks:
@@ -35,6 +32,17 @@
         name: mariadb-server-10.6
         state: present
 
+    - name: Install pip3 package
+      package:
+        name: python3-pip
+        state: present
+
+    - name: Install PyMySQL package
+      pip:
+        name: PyMySQL
+        state: present
+
+
 
     - name: start and enable MariaDB service
       service:
@@ -48,14 +56,14 @@
         mysql -e "UPDATE mysql.global_priv SET priv=json_set(priv, '$.plugin', 'mysql_native_password','$.authentication_string', PASSWORD('{{ mariadb_root_passwd }}')) WHERE User='root'; FLUSH PRIVILEGES;"
 
 
-    - name: create database clouds2024
+    - name: create database parkings
       mysql_db:
-        name: clouds2024
+        name: parkings
         login_user: root
         login_password: "{{ mariadb_root_passwd }}"
         state: present
 
-    - name: add user (clouds2024) to MariaDB
+    - name: add user (parkings) to MariaDB
       mysql_user:
         name: "{{ item.name }}"
         password: "{{ item.password }}"

@@ -7,3 +7,4 @@ requests
 starlette
 pydantic
 prometheus-fastapi-instrumentator
+pydantic-settings

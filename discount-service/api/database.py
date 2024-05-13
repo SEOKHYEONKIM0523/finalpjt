@@ -1,10 +1,10 @@
 import sqlalchemy
 
 from sqlalchemy.orm import sessionmaker
+from settings import config
 
-db_url = 'sqlite:///car.db'
 
-engine = sqlalchemy.create_engine(db_url, echo=True)
+engine = sqlalchemy.create_engine(config.db_conn, echo=True)
 Session = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 

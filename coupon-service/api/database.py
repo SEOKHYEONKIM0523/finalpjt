@@ -1,10 +1,9 @@
 import sqlalchemy
 from api.models.coupon import Base
 from sqlalchemy.orm import sessionmaker
+from settings import config
 
-db_url = 'sqlite:///coupon.db'
-
-engine = sqlalchemy.create_engine(db_url, echo=True)
+engine = sqlalchemy.create_engine(config.db_conn, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
