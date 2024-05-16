@@ -1,6 +1,6 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from settings import config
+# from settings import config
 
 # from api.models.member import Base
 from api.models.member import Base
