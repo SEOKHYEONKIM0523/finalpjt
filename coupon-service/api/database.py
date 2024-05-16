@@ -1,7 +1,7 @@
 import sqlalchemy
 from api.models.coupon import Base
 from sqlalchemy.orm import sessionmaker
-from settings import config
+# from settings import config
 from dotenv import load_dotenv
 import os
 
