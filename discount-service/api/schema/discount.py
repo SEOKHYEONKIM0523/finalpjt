@@ -9,7 +9,7 @@ class Car(BaseModel):
     pname: str
     ent: str
     ent_time: datetime
-    check: str
+    checks: str
     exit_time: datetime
     ptime: str
     disc: str
