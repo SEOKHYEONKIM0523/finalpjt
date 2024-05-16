@@ -4,9 +4,15 @@ from settings import config
 
 # from api.models.member import Base
 from api.models.member import Base
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 
-engine = sqlalchemy.create_engine(config.db_conn, echo=True)
+#db_url = 'sqlite:///coupon.db'
+db_url = os.getenv("DATABASE_URL")
+
+engine = sqlalchemy.create_engine(db_url, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 def create_tables():
