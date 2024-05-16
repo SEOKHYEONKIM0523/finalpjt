@@ -2,8 +2,15 @@ import sqlalchemy
 from api.models.coupon import Base
 from sqlalchemy.orm import sessionmaker
 from settings import config
+from dotenv import load_dotenv
+import os
 
-engine = sqlalchemy.create_engine(config.db_conn, echo=True)
+load_dotenv()
+
+#db_url = 'sqlite:///coupon.db'
+db_url = os.getenv("DATABASE_URL")
+
+engine = sqlalchemy.create_engine(db_url, echo=True)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
