@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Column, Integer, String, Text, Float, DateTime
+from sqlalchemy import Column, Integer, String, Text, Float, DateTime, VARBINARY
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
@@ -25,7 +25,7 @@ class Member(Base):
 
     mno = Column(Integer, primary_key=True, autoincrement=True)
     mid = Column(String(18), nullable=False, unique=True)
-    mpwd = Column(String(128), nullable=False)
+    mpwd = Column(VARBINARY(128), nullable=False)
     mname = Column(String(20), nullable=False)
     pname = Column(String(40), nullable=False)
     #regdate = Column(String(20), default=datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
